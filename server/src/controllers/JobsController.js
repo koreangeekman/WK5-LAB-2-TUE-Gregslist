@@ -44,7 +44,22 @@ export class JobsController extends BaseController {
     }
   }
 
+  async removeJob(req, res, nxt) {
+    try {
+      const car = await jobsService.removeJob(req.body, req.userInfo.id);
+      return res.send(car)
+    } catch (error) {
+      nxt(error)
+    }
+  }
 
-
+  async updateJob(req, res, nxt) {
+    try {
+      const car = await jobsService.updateJob(req.params.jobId, req.body, req.userInfo.id);
+      return res.send(car)
+    } catch (error) {
+      nxt(error)
+    }
+  }
 
 }
