@@ -1,0 +1,128 @@
+/* BASIC STYLES HERE */
+label {
+  display: block;
+}
+
+input {
+  width: 100%;
+}
+
+.car-creator {
+  height: 10vh;
+  width: 10vh;
+  object-fit: cover;
+}
+
+.car-img {
+  height: 50vh;
+  width: 50vw;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Above is from forked content */
+
+/* BASIC STYLES HERE */
+#homePage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* SECTION CAR  */
+.carFormCard label {
+  display: block;
+}
+
+.carFormCard input {
+  width: 100%;
+}
+
+.carFormCard textarea {
+  width: 50%;
+}
+
+.carFormCard .checkbox {
+  width: auto;
+}
+
+.color {
+  width: 10vw;
+}
+
+.car-img {
+  height: 40vh;
+  width: 30%;
+  object-fit: cover;
+}
+
+.car-border {
+  border-style: solid;
+  border-width: 5px;
+}
+
+/* !SECTION CAR  */
+
+/* SECTION SHARED HOMES & JOBS */
+input {
+  margin: 0.25rem 0;
+  padding: 0;
+}
+
+form label {
+  padding: 0.5rem 0 0;
+}
+
+.formCard {
+  border-radius: 1rem;
+  border: 2px solid whitesmoke;
+}
+
+#houseCards img {
+  height: 30dvh;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#jobCards img {
+  height: 30dvh;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.overlay {
+  position: absolute;
+  width: 90%;
+}
+
+.price {
+  border-radius: 0.5rem;
+  background-color: rgb(172, 255, 47);
+  width: fit-content;
+  padding: 5px;
+  margin: 5px;
+}
+
+.remove {
+  border-radius: 0.5rem;
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+}
+
+.remove:hover {
+  color: red;
+}
+
+/* !SECTION HOMES */
+
+
+/* SECTION CREATOR SUBCARD */
+.creatorIMG {
+  /* height: 50px;
+  object-fit: cover; */
+}
