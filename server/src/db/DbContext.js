@@ -6,7 +6,6 @@ import { HouseSchema } from "../models/House.js";
 import { JobSchema } from "../models/Job.js";
 
 class DbContext {
-  Values = mongoose.model('Value', ValueSchema);
   Account = mongoose.model('Account', AccountSchema);
   Car = mongoose.model('Car', CarSchema);
   Houses = mongoose.model('House', HouseSchema);
