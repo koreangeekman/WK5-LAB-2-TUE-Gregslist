@@ -18,15 +18,18 @@ function _drawJobsForm() {
   setHTML('jobsForm', Job.jobFormTemplate);
 }
 
+function _drawALL() {
+  _drawJobsForm();
+  _drawJobs();
+}
+
 export class JobsController {
   constructor() {
     jobsService.getJobs();
-
     _drawJobs();
     _drawJobsForm();
     AppState.on('jobs', _drawJobs);
-    AppState.on('account', _drawJobs);
-    AppState.on('account', _drawJobsForm);
+    AppState.on('account', _drawALL);
   }
 
   async addJob(event) { //from form submission

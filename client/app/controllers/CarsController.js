@@ -6,11 +6,9 @@ import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
 
 function _drawCars() {
-  console.log('DRAWING CARS');
-  const cars = AppState.cars
-  let content = ''
-  cars.forEach(car => content += car.CarCardTemplate)
-  setHTML('carCards', content)
+  let contentHTML = ''
+  AppState.cars.forEach(car => contentHTML += car.CarCardTemplate)
+  setHTML('carCards', contentHTML)
 }
 function _drawCarForm() {
   if (!AppState.account) {
@@ -19,15 +17,18 @@ function _drawCarForm() {
   setHTML('carForm', Car.CarFormTemplate)
 }
 
+function _drawALL() {
+  _drawCarForm();
+  _drawCars();
+}
+
 export class CarsController {
   constructor() {
-    console.log('cars controller loaded');
     this.getCars()
     _drawCarForm()
 
     AppState.on('cars', _drawCars)
-    AppState.on('account', _drawCars)
-    AppState.on('account', _drawCarForm)
+    AppState.on('account', _drawALL)
   }
 
   async getCars() {
@@ -42,7 +43,6 @@ export class CarsController {
   async createCar(event) {
     try {
       event.preventDefault()
-      console.log('form submitted');
       await carsService.createCar(getFormData(event.target))
       event.target.reset()
     } catch (error) {
@@ -54,10 +54,7 @@ export class CarsController {
   async removeCar(carId) {
     try {
       const wantsToDelete = await Pop.confirm('Are you sure you want to delete this car?')
-      if (!wantsToDelete) {
-        return
-      }
-
+      if (!wantsToDelete) { return }
       await carsService.removeCar(carId)
     } catch (error) {
       Pop.error(error)

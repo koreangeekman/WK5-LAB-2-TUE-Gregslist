@@ -18,15 +18,18 @@ function _drawHousesForm() {
   setHTML('housesForm', House.housesFormTemplate)
 }
 
+function _drawALL() {
+  _drawHousesForm();
+  _drawHomes();
+}
+
 export class HousingController {
   constructor() {
     housingService.getHouseData();
-
     _drawHomes();
     _drawHousesForm();
     AppState.on('houses', _drawHomes);
-    AppState.on('account', _drawHomes);
-    AppState.on('account', _drawHousesForm);
+    AppState.on('account', _drawALL);
   }
 
   async addHouse(event) { // form submission

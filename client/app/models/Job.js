@@ -14,7 +14,6 @@ export class Job {
     this.createdAt = data.createdAt ? new Date(data.createdAt).toLocaleString() : new Date().toLocaleString()
     this.updatedAt = data.updatedAt ? new Date(data.updatedAt).toLocaleString() : new Date().toLocaleString()
     this.creatorId = data.creatorId
-    this.creator = data.creator
   }
 
   //   {
@@ -54,11 +53,6 @@ export class Job {
           <p><b>Description</b>: ${this.description}</p>
           <p class="text-secondary w-100 text-end"><small>Listed At: ${this.createdAt}</small></p>
           <p class="text-secondary w-100 text-end"><small>Updated At: ${this.updatedAt}</small></p>
-          <hr>
-          <span class="d-block">
-            <p class="">OP: ${this.creator.name}</p>
-            <img class="creatorIMG" src="${this.creator.picture}">
-          </span>
         </div>
       </div >
     `
@@ -104,11 +98,6 @@ export class Job {
           <label for="description">Description:</label>
           <textarea class="form-control" type="text" name="description" id="description" minlength="10"
             maxlength="320" placeholder="Please enter a short description" rows="3" required></textarea>
-        </span>
-        <span class="">
-          <label for="imgUrl">Image URL:</label>
-          <input class="form-control" type="url" name="imgUrl" id="imgUrl"
-            placeholder="Please submit a URL for the image" maxlength="200">
         </span>
         <button class="btn btn-success my-3" type="submit">Submit</button>
       </form>

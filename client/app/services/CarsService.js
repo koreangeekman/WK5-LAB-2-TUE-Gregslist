@@ -6,9 +6,7 @@ class CarsService {
 
   async getCars() {
     const res = await api.get('api/cars')
-    console.log('GOT CARS', res.data);
-    const newCars = res.data.map(carPOJO => new Car(carPOJO))
-    AppState.cars = newCars
+    AppState.cars = res.data.map(carPOJO => new Car(carPOJO))
   }
 
   async createCar(carFormData) {

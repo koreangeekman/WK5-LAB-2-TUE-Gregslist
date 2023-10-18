@@ -7,7 +7,9 @@ export const JobSchema = new Schema({
   rate: { type: Number, required: true, min: 10, },
   description: { type: String, required: true, maxLength: 300 },
   creatorId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' }
-})
+},
+  { timestamps: true, toJSON: { virtuals: true } }
+)
 
 // this.id = data.id || generateId()
 // this.company = data.company

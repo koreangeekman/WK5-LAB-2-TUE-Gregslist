@@ -10,7 +10,9 @@ export const HouseSchema = new Schema({
   description: { type: String, required: false, maxLength: 300 },
   imgUrl: { type: String, required: true, minLength: 16, maxLength: 200 },
   creatorId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
-})
+},
+  { timestamps: true, toJSON: { virtuals: true } }
+)
 
 // this.id = data.id || generateId()
 // this.year = data.year
